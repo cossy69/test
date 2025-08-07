@@ -1,0 +1,243 @@
+/* Nekomata Store - Black & White Theme */
+:root {
+    --primary-black: #000000;
+    --primary-white: #ffffff;
+    --light-gray: #f8f9fa;
+    --medium-gray: #6c757d;
+    --dark-gray: #343a40;
+    --accent-gray: #e9ecef;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-gray);
+    color: var(--primary-black);
+}
+
+/* Navigation */
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--accent-gray);
+}
+
+/* Cards */
+.card {
+    border: 1px solid var(--accent-gray);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Buttons */
+.btn-dark {
+    background-color: var(--primary-black);
+    border-color: var(--primary-black);
+}
+
+.btn-dark:hover {
+    background-color: var(--dark-gray);
+    border-color: var(--dark-gray);
+}
+
+.btn-outline-dark {
+    color: var(--primary-black);
+    border-color: var(--primary-black);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--primary-black);
+    border-color: var(--primary-black);
+    color: var(--primary-white);
+}
+
+/* Forms */
+.form-control:focus {
+    border-color: var(--dark-gray);
+    box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.25);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-black) 0%, var(--dark-gray) 100%);
+    color: var(--primary-white);
+    padding: 4rem 0;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+/* Category Cards */
+.category-card {
+    background: var(--primary-white);
+    border: 2px solid var(--accent-gray);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--primary-black);
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+    border-color: var(--primary-black);
+    color: var(--primary-black);
+    text-decoration: none;
+}
+
+.category-card img {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Price Tags */
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-black);
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+}
+
+/* Rating Stars */
+.rating {
+    color: #ffc107;
+}
+
+/* Cart Badge */
+.badge {
+    font-size: 0.7rem;
+}
+
+/* Search Results */
+.search-results {
+    background: var(--primary-white);
+    border: 1px solid var(--accent-gray);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+/* Order Status */
+.status-pending {
+    color: #ffc107;
+}
+
+.status-processing {
+    color: #007bff;
+}
+
+.status-completed {
+    color: #28a745;
+}
+
+.status-cancelled {
+    color: #dc3545;
+}
+
+/* Admin Panel */
+.admin-sidebar {
+    background-color: var(--dark-gray);
+    min-height: calc(100vh - 56px);
+}
+
+.admin-sidebar .nav-link {
+    color: var(--primary-white);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.admin-sidebar .nav-link:hover {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+}
+
+.admin-sidebar .nav-link.active {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+}
+
+/* Tables */
+.table {
+    background-color: var(--primary-white);
+}
+
+.table thead th {
+    background-color: var(--dark-gray);
+    color: var(--primary-white);
+    border: none;
+}
+
+/* Loading Spinner */
+.spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--accent-gray);
+    border-top: 3px solid var(--primary-black);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Custom Utilities */
+.text-black {
+    color: var(--primary-black) !important;
+}
+
+.bg-light-gray {
+    background-color: var(--light-gray) !important;
+}
+
+.border-black {
+    border-color: var(--primary-black) !important;
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
