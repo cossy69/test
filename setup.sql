@@ -118,6 +118,29 @@ INSERT INTO products (name, description, price, stock_quantity, category_id, ima
 ('Programming Book', 'Learn web development from scratch', 39.99, 75, 3, 'https://via.placeholder.com/300x300?text=Book'),
 ('Coffee Maker', 'Automatic coffee brewing machine', 149.99, 30, 4, 'https://via.placeholder.com/300x300?text=Coffee+Maker');
 
+-- Wishlist table
+CREATE TABLE wishlist (
+    wishlist_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE,
+    UNIQUE KEY unique_user_product (user_id, product_id)
+);
+
+-- Wishlist shares table for sharing wishlists
+CREATE TABLE wishlist_shares (
+    share_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    share_token VARCHAR(64) NOT NULL UNIQUE,
+    expires_at TIMESTAMP NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    INDEX idx_share_token (share_token),
+    INDEX idx_expires_at (expires_at)
+);
+
 -- Create admin user (password: admin123)
 INSERT INTO users (username, password, email, full_name, role) VALUES
 ('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin@nekomata.com', 'Administrator', 'admin');
